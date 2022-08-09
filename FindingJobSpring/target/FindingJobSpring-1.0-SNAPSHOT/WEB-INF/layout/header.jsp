@@ -1,0 +1,114 @@
+<%-- 
+    Document   : header
+    Created on : Jul 24, 2022, 1:10:04 PM
+    Author     : admin
+--%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<nav class="navbar navbar-expand-sm navbar-dark bg-secondary w-100 position-fixed" style="z-index: 100;">
+    <div class="container-fluid">
+        <div class="logo">
+            <a class="navbar-brand" href="javascript:void(0)">
+                <img src="https://res.cloudinary.com/dnlryecwq/image/upload/v1659536351/z3613432030895_0d06ac09a1b2703dc88e8b97effdc336-removebg-preview_2_zdain2_s8c92f.png" alt="alt"/>
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0)">Việc làm</a>
+                    <div class="dropdown-content bg-dark">
+                        <ul class="cat-menu bg-dark">
+                            <li class="dropdown-items"><a href="#" class="text-light">
+                                    <div class="cat-menu-item--box">
+                                        <span>Việc làm theo thành phố</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                             class="bi bi-chevron-right arrowright-icon" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </div>
+                                </a>
+                                <div class="cat-menu__sub-menu">
+                                    <div>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Hồ Chí Minh</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Hà Nội</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Đà Nẵng</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Khác</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown-items"><a href="#" class="text-light">
+                                    <div class="cat-menu-item--box">
+                                        <span>Việc làm theo công ty </span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                             class="bi bi-chevron-right arrowright-icon" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </div>
+                                </a>
+                                <div class="cat-menu__sub-menu">
+                                    <div>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty A</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty A</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty A</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty A</a>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty B</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty B</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty B</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty B</a>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty c</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty c</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty c</a>
+                                        <a href="#" class="cat-menu__sub-menu-item text-light">Công ty c</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">Top công ty</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">About us</a>
+                </li>
+            </ul>
+            <ul class="d-flex navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">Liên hệ tuyển dụng </a>
+                </li>
+                <li class="nav-item">
+                    <c:if test="${pageContext.request.userPrincipal.name == null}">
+                        <li>
+                            <a class="nav-link" href="<c:url value="/login" />"">Đăng nhập</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${pageContext.request.userPrincipal.name != null}">
+                        <li>
+                            <a class ="nav-link" href="#">Xin chào ${pageContext.request.userPrincipal.name}</a>
+                        </li>
+                    </c:if>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">EN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">VIE</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

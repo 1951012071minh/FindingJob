@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache
+Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="baseLayout"
+                template="/WEB-INF/layout/base.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header"
+                       value="/WEB-INF/layout/header.jsp" />
+        <put-attribute name="belownav" value="/WEB-INF/layout/belownav.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/footer.jsp" />
+        
+    </definition>
+    <definition name="index" extends="baseLayout">
+        <put-attribute name="title" value="Trang chủ" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/index.jsp" />
+    </definition>
+    <definition name="signincompany" extends="baseLayout">
+        <put-attribute name="title" value="Đăng ký tuyển dụng" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/signincompany.jsp" />
+        <put-attribute name="belownav" value="" />
+    </definition>
+    <definition name="signincandidate" extends="baseLayout">
+        <put-attribute name="title" value="Đăng ký tài khoản" />
+        <put-attribute name="belownav" value="" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/signincandidate.jsp" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    <definition name="login" extends="baseLayout">
+        <put-attribute name="title" value="Đăng nhập" />
+        <put-attribute name="belownav" value="" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/login.jsp" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    <definition name="signincandidate1" extends="baseLayout">
+        <put-attribute name="title" value="b? sung thông tin" />
+        <put-attribute name="belownav" value="" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/signincandidate1.jsp" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    <definition name="signincandidate2" extends="baseLayout">
+        <put-attribute name="title" value="ch?n ngành ngh?" />
+        <put-attribute name="belownav" value="" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/signincandidate2.jsp" />
+        <put-attribute name="footer" value="" />
+    </definition>
+    <definition name="job_page" extends="baseLayout">
+        <put-attribute name="title" value="công vi?c" />
+        <put-attribute name="belownav" value="" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/job_page.jsp" />
+        
+    </definition>
+   
+</tiles-definitions>
