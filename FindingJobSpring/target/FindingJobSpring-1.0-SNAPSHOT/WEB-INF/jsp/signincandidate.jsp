@@ -30,7 +30,7 @@
                     <div class="container">
                         <P><b>THÔNG TIN TÀI KHOẢN</b></P>
                         <label for="uname"><b>Username</b> <b class="text-danger">*</b></label>
-                        <input type="text" class="input_username" placeholder="Enter Username" id="username" path="username" required>
+                        <input type="email" class="input_username" placeholder="Enter Username" id="username" path="username" required>
                         <label for="psw"><b>Họ và tên</b> <b class="text-danger">*</b></label>
                         <input type="text" class="input_text" placeholder="Enter name" id="fullname" path="fullname" required>
                         <label for="psw"><b>Password</b> <b class="text-danger">*</b></label>

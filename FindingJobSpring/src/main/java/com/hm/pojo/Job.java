@@ -23,8 +23,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,7 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "job")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Job.findAll", query = "SELECT j FROM Job j"),
     @NamedQuery(name = "Job.findById", query = "SELECT j FROM Job j WHERE j.id = :id"),
@@ -209,7 +206,6 @@ public class Job implements Serializable {
         this.benefit = benefit;
     }
 
-    @XmlTransient
     public Set<CandidateJob> getCandidateJobSet() {
         return candidateJobSet;
     }
@@ -218,7 +214,6 @@ public class Job implements Serializable {
         this.candidateJobSet = candidateJobSet;
     }
 
-    @XmlTransient
     public Set<CandidateCompany> getCandidateCompanySet() {
         return candidateCompanySet;
     }
@@ -227,7 +222,6 @@ public class Job implements Serializable {
         this.candidateCompanySet = candidateCompanySet;
     }
 
-    @XmlTransient
     public Set<JobMajor> getJobMajorSet() {
         return jobMajorSet;
     }
@@ -244,7 +238,6 @@ public class Job implements Serializable {
         this.companyID = companyID;
     }
 
-    @XmlTransient
     public Set<JobCategory> getJobCategorySet() {
         return jobCategorySet;
     }

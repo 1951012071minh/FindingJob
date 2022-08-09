@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `candidate`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `candidate` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `Full_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Email` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DateOfBirth` date DEFAULT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `candidate` (
   UNIQUE KEY `Email_UNIQUE` (`Email`),
   KEY `candidate_user_idx` (`User_ID`),
   CONSTRAINT `candidate_user_id` FOREIGN KEY (`User_ID`) REFERENCES `user` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,14 +83,14 @@ DROP TABLE IF EXISTS `candidate_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `candidate_category` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `Candidate_ID` int DEFAULT NULL,
   `Cate_ID` int DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `Candidate_ID_idx` (`Candidate_ID`),
-  KEY `Cate_ID_idx` (`Cate_ID`),
+  KEY `can_cate_category_id_idx` (`Cate_ID`),
   CONSTRAINT `can_cate_candidate_id` FOREIGN KEY (`Candidate_ID`) REFERENCES `candidate` (`ID`) ON DELETE CASCADE,
-  CONSTRAINT `can_cate_category_id` FOREIGN KEY (`Cate_ID`) REFERENCES `job_category` (`ID`) ON DELETE CASCADE
+  CONSTRAINT `can_cate_category_id` FOREIGN KEY (`Cate_ID`) REFERENCES `category` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -122,8 +122,8 @@ CREATE TABLE `candidate_company` (
   `IsLiked` int DEFAULT '0',
   PRIMARY KEY (`ID`),
   KEY `Work_Candidate_ID_idx` (`Candidate_ID`),
-  KEY `Work_Company_ID_idx` (`Company_ID`),
   KEY `Work_Job_ID_idx` (`Job_ID`),
+  KEY `can_com_company_id_idx` (`Company_ID`),
   CONSTRAINT `can_com_candidate_id` FOREIGN KEY (`Candidate_ID`) REFERENCES `candidate` (`ID`),
   CONSTRAINT `can_com_company_id` FOREIGN KEY (`Company_ID`) REFERENCES `company` (`ID`),
   CONSTRAINT `can_com_job_id` FOREIGN KEY (`Job_ID`) REFERENCES `job` (`ID`) ON DELETE CASCADE
@@ -147,7 +147,7 @@ DROP TABLE IF EXISTS `candidate_job`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `candidate_job` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `Candidate_ID` int DEFAULT NULL,
   `Job_ID` int DEFAULT NULL,
   `AppliedDate` date DEFAULT NULL,
@@ -235,7 +235,7 @@ DROP TABLE IF EXISTS `company`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `company` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `Address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `City` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
@@ -266,7 +266,7 @@ DROP TABLE IF EXISTS `company_major`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `company_major` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `Company_ID` int DEFAULT NULL,
   `Major_ID` int DEFAULT NULL,
   PRIMARY KEY (`ID`),
@@ -294,7 +294,7 @@ DROP TABLE IF EXISTS `curriculum_vitae`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `curriculum_vitae` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `CareerGoals` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DegreeDetail` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ExperienceDetail` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -361,7 +361,7 @@ DROP TABLE IF EXISTS `job_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `job_category` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `Job_ID` int DEFAULT NULL,
   `Cate_ID` int DEFAULT NULL,
   `Point` double DEFAULT NULL,
@@ -442,7 +442,7 @@ DROP TABLE IF EXISTS `major_category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `major_category` (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `Major_ID` int DEFAULT NULL,
   `Cate_ID` int DEFAULT NULL,
   PRIMARY KEY (`ID`),
@@ -499,4 +499,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-09 22:31:37
+-- Dump completed on 2022-08-10  0:05:13

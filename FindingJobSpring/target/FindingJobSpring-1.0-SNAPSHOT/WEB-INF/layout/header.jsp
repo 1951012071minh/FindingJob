@@ -88,12 +88,12 @@
             </ul>
             <ul class="d-flex navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Liên hệ tuyển dụng </a>
+                    <a class="nav-link" href="<c:url value="/signincompany" />">Liên hệ tuyển dụng </a>
                 </li>
                 <li class="nav-item">
                     <c:if test="${pageContext.request.userPrincipal.name == null}">
                         <li>
-                            <a class="nav-link" href="<c:url value="/login" />"">Đăng nhập</a>
+                            <a class="nav-link" href="<c:url value="/login" />">Đăng nhập</a>
                         </li>
                     </c:if>
                     <c:if test="${pageContext.request.userPrincipal.name != null}">

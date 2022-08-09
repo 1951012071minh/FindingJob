@@ -10,6 +10,8 @@ import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,10 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,7 +29,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "candidate")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Candidate.findAll", query = "SELECT c FROM Candidate c"),
     @NamedQuery(name = "Candidate.findById", query = "SELECT c FROM Candidate c WHERE c.id = :id"),
@@ -44,8 +42,8 @@ public class Candidate implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
     private Integer id;
     @Size(max = 100)
@@ -144,7 +142,6 @@ public class Candidate implements Serializable {
         this.description = description;
     }
 
-    @XmlTransient
     public Set<CandidateJob> getCandidateJobSet() {
         return candidateJobSet;
     }
@@ -153,7 +150,6 @@ public class Candidate implements Serializable {
         this.candidateJobSet = candidateJobSet;
     }
 
-    @XmlTransient
     public Set<CurriculumVitae> getCurriculumVitaeSet() {
         return curriculumVitaeSet;
     }
@@ -162,7 +158,6 @@ public class Candidate implements Serializable {
         this.curriculumVitaeSet = curriculumVitaeSet;
     }
 
-    @XmlTransient
     public Set<CandidateCompany> getCandidateCompanySet() {
         return candidateCompanySet;
     }
@@ -179,7 +174,6 @@ public class Candidate implements Serializable {
         this.userID = userID;
     }
 
-    @XmlTransient
     public Set<CandidateMajor> getCandidateMajorSet() {
         return candidateMajorSet;
     }
@@ -188,7 +182,6 @@ public class Candidate implements Serializable {
         this.candidateMajorSet = candidateMajorSet;
     }
 
-    @XmlTransient
     public Set<CandidateCategory> getCandidateCategorySet() {
         return candidateCategorySet;
     }

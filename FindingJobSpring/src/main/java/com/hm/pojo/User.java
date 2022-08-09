@@ -21,8 +21,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,7 +28,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "user")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
     @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
@@ -122,7 +119,6 @@ public class User implements Serializable {
         this.userRole = userRole;
     }
 
-    @XmlTransient
     public Set<Administator> getAdministatorSet() {
         return administatorSet;
     }
@@ -131,7 +127,6 @@ public class User implements Serializable {
         this.administatorSet = administatorSet;
     }
 
-    @XmlTransient
     public Set<Candidate> getCandidateSet() {
         return candidateSet;
     }
@@ -140,7 +135,6 @@ public class User implements Serializable {
         this.candidateSet = candidateSet;
     }
 
-    @XmlTransient
     public Set<Company> getCompanySet() {
         return companySet;
     }

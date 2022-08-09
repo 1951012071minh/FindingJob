@@ -47,7 +47,7 @@
                         <button class="btn_login"  type="submit">Đăng Nhập</button>
                         <div class="below_btn_login">
 
-                            <span class="psw span_left" >Bạn chưa có  <a href="#">Tài Khoản ?</a></span>
+                            <span class="psw span_left" >Bạn chưa có <a href="<c:url value="/signincandidate" />">Tài Khoản ?</a></span>
                         </div>
                     </div>
 

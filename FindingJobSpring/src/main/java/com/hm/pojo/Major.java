@@ -17,8 +17,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -26,7 +24,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "major")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Major.findAll", query = "SELECT m FROM Major m"),
     @NamedQuery(name = "Major.findById", query = "SELECT m FROM Major m WHERE m.id = :id"),
@@ -76,7 +73,6 @@ public class Major implements Serializable {
         this.name = name;
     }
 
-    @XmlTransient
     public Set<CompanyMajor> getCompanyMajorSet() {
         return companyMajorSet;
     }
@@ -85,7 +81,6 @@ public class Major implements Serializable {
         this.companyMajorSet = companyMajorSet;
     }
 
-    @XmlTransient
     public Set<MajorCategory> getMajorCategorySet() {
         return majorCategorySet;
     }
@@ -94,7 +89,6 @@ public class Major implements Serializable {
         this.majorCategorySet = majorCategorySet;
     }
 
-    @XmlTransient
     public Set<JobMajor> getJobMajorSet() {
         return jobMajorSet;
     }
@@ -103,7 +97,6 @@ public class Major implements Serializable {
         this.jobMajorSet = jobMajorSet;
     }
 
-    @XmlTransient
     public Set<CandidateMajor> getCandidateMajorSet() {
         return candidateMajorSet;
     }
@@ -112,7 +105,6 @@ public class Major implements Serializable {
         this.candidateMajorSet = candidateMajorSet;
     }
 
-    @XmlTransient
     public Set<Category> getCategorySet() {
         return categorySet;
     }

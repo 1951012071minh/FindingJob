@@ -5,20 +5,17 @@
 package com.hm.pojo;
 
 import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -26,7 +23,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "job_category")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "JobCategory.findAll", query = "SELECT j FROM JobCategory j"),
     @NamedQuery(name = "JobCategory.findById", query = "SELECT j FROM JobCategory j WHERE j.id = :id"),
@@ -35,15 +31,13 @@ public class JobCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
     private Integer id;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "Point")
     private Double point;
-    @OneToMany(mappedBy = "cateID")
-    private Set<CandidateCategory> candidateCategorySet;
     @JoinColumn(name = "Cate_ID", referencedColumnName = "ID")
     @ManyToOne
     private Category cateID;
@@ -72,15 +66,6 @@ public class JobCategory implements Serializable {
 
     public void setPoint(Double point) {
         this.point = point;
-    }
-
-    @XmlTransient
-    public Set<CandidateCategory> getCandidateCategorySet() {
-        return candidateCategorySet;
-    }
-
-    public void setCandidateCategorySet(Set<CandidateCategory> candidateCategorySet) {
-        this.candidateCategorySet = candidateCategorySet;
     }
 
     public Category getCateID() {

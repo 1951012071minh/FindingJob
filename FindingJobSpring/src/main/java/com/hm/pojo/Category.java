@@ -19,8 +19,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -28,7 +26,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "category")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Category.findAll", query = "SELECT c FROM Category c"),
     @NamedQuery(name = "Category.findById", query = "SELECT c FROM Category c WHERE c.id = :id"),
@@ -46,6 +43,8 @@ public class Category implements Serializable {
     private String name;
     @OneToMany(mappedBy = "cateID")
     private Set<MajorCategory> majorCategorySet;
+    @OneToMany(mappedBy = "cateID")
+    private Set<CandidateCategory> candidateCategorySet;
     @JoinColumn(name = "Major_ID", referencedColumnName = "ID")
     @ManyToOne
     private Major majorID;
@@ -75,13 +74,20 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    @XmlTransient
     public Set<MajorCategory> getMajorCategorySet() {
         return majorCategorySet;
     }
 
     public void setMajorCategorySet(Set<MajorCategory> majorCategorySet) {
         this.majorCategorySet = majorCategorySet;
+    }
+
+    public Set<CandidateCategory> getCandidateCategorySet() {
+        return candidateCategorySet;
+    }
+
+    public void setCandidateCategorySet(Set<CandidateCategory> candidateCategorySet) {
+        this.candidateCategorySet = candidateCategorySet;
     }
 
     public Major getMajorID() {
@@ -92,7 +98,6 @@ public class Category implements Serializable {
         this.majorID = majorID;
     }
 
-    @XmlTransient
     public Set<JobCategory> getJobCategorySet() {
         return jobCategorySet;
     }

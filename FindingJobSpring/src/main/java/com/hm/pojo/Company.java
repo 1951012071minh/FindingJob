@@ -9,6 +9,8 @@ import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,10 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -27,7 +26,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "company")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Company.findAll", query = "SELECT c FROM Company c"),
     @NamedQuery(name = "Company.findById", query = "SELECT c FROM Company c WHERE c.id = :id"),
@@ -41,8 +39,8 @@ public class Company implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "ID")
     private Integer id;
     @Size(max = 100)
@@ -137,7 +135,6 @@ public class Company implements Serializable {
         this.email = email;
     }
 
-    @XmlTransient
     public Set<CompanyMajor> getCompanyMajorSet() {
         return companyMajorSet;
     }
@@ -146,7 +143,6 @@ public class Company implements Serializable {
         this.companyMajorSet = companyMajorSet;
     }
 
-    @XmlTransient
     public Set<CandidateCompany> getCandidateCompanySet() {
         return candidateCompanySet;
     }
@@ -163,7 +159,6 @@ public class Company implements Serializable {
         this.userID = userID;
     }
 
-    @XmlTransient
     public Set<Job> getJobSet() {
         return jobSet;
     }
