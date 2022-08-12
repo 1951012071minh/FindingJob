@@ -56,6 +56,9 @@ public class Job implements Serializable {
     @Size(max = 500)
     @Column(name = "Description")
     private String description;
+    @Size(max = 200)
+    @Column(name = "Name")
+    private String name;
     @Column(name = "Salary")
     private BigInteger salary;
     @Column(name = "EndDate")
@@ -269,6 +272,20 @@ public class Job implements Serializable {
     @Override
     public String toString() {
         return "com.hm.pojo.Job[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
     
 }

@@ -5,10 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div id="login_section">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<c:url value ="/signincandidate" var ="action"/>
+<div id="login_section" style="margin-top: -15px;">
     <div class="row">
         <div class="col-md-6">
-            <div class="login_left">
+            <div class="login_left" style="height: 100vh;">
                 <div class="login_left-img">
                     <img  src="https://blogcdn.muaban.net/wp-content/uploads/2019/09/timvieclamtaihanoi2.jpg" alt="" >
                     <div class="login_left-title text-center">
@@ -21,7 +24,8 @@
         </div>
         <div class="col-md-6">
             <div class="login_right">
-                <form class="modal-content_login animate" action="/action_page.php" method="post">
+                <form:form class = "modal-content_login animate" action="${action}" method="post" modelAttribute = "user">
+                    
                     <div class="imgcontainer">
                         <p>Chào mừng bạn đến với H&M VIEC</p>
                         <h3>Sign in for candidate</h3>
@@ -29,16 +33,14 @@
                     <hr class="hr_signlog">
                     <div class="container">
                         <P><b>THÔNG TIN TÀI KHOẢN</b></P>
-                        <label for="uname"><b>Username</b> <b class="text-danger">*</b></label>
-                        <input type="email" class="input_username" placeholder="Enter Username" id="username" path="username" required>
-                        <label for="psw"><b>Họ và tên</b> <b class="text-danger">*</b></label>
-                        <input type="text" class="input_text" placeholder="Enter name" id="fullname" path="fullname" required>
+                        <label for="uname"><b>Địa chỉ email</b> <b class="text-danger">*</b></label>
+                        <form:input type = "email" class="input_username" placeholder="Enter Username "  id="username" path="username" required = "required"/>
+                        
                         <label for="psw"><b>Password</b> <b class="text-danger">*</b></label>
-                        <input type="password" class="input_password" placeholder="Enter Password" id="password" path="password" required>
+                        <form:input type="password" class="input_password" placeholder="Enter Password" id="password" path="password" required = "required"/>
                         <label for="psw"><b>Nhập lại password</b> <b class="text-danger">*</b></label>
-                        <input type="password" class="input_password" placeholder="Enter Password" id="repassword" path="repassword" required>
-                        <label for="imgFile"><b>Ảnh cá nhân</b> <b class="text-danger">*</b></label>
-                        <input class="form-control form-control-sm form-control_inputFile" id="formFileSm" type="file">
+                        <form:input type="password" class="input_password" placeholder="Enter Password" id="repassword" path="repassword" required = "required"/>
+                        
 
                         <button class="btn_login"  type="submit">Đăng Ký</button>
                         <div class="below_btn_login">
@@ -48,8 +50,10 @@
                     </div>
 
 
-                </form>
+                </form:form>
             </div>
         </div>
     </div>
 </div>
+
+

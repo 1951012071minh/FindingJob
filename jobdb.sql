@@ -62,7 +62,7 @@ CREATE TABLE `candidate` (
   UNIQUE KEY `Email_UNIQUE` (`Email`),
   KEY `candidate_user_idx` (`User_ID`),
   CONSTRAINT `candidate_user_id` FOREIGN KEY (`User_ID`) REFERENCES `user` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -326,6 +326,7 @@ DROP TABLE IF EXISTS `job`;
 CREATE TABLE `job` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `Company_ID` int DEFAULT NULL,
+  `Name` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Description` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Salary` decimal(20,0) DEFAULT NULL,
   `EndDate` date DEFAULT NULL,
@@ -477,7 +478,7 @@ CREATE TABLE `user` (
   `UserRole` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `Username_UNIQUE` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -486,7 +487,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'anhminh123','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO',NULL,'ROLE_USER');
+INSERT INTO `user` VALUES (1,'anhminh123','$2a$10$5X9k5N1sTc1/CjVH5XJoje3QMYijH3ETpgkox00R0MdPaJPPrf7wO',NULL,'ROLE_USER'),(25,'anhminh07101232015@gmail.com','$2a$10$n3KCX8u2yNUiSpY5xr8pIuTqyeBP3UxZCN862GCJ4p1MUdtS9oK2.',NULL,NULL),(26,'anhmi1nh071102015@gmail.com','$2a$10$1LghnRIjoRRv6XO//umbPulz838UEPn6sR6Kjr3fNOczIPcA/KnxW',NULL,NULL),(27,'1anhminh07102015@gmail.com','$2a$10$DwjkfcPqXJd3jXFwNsDDuuj1TF21qIsMpxCLzGnJ3ttKIcAIx89Ae',NULL,NULL),(28,'anhminh123207102015@gmail.com','$2a$10$PNdNhzhtdnVq4C8q6YIhMOEj0XKJ5m2eIIUTwlDGdd0ezVyfSuqmS',NULL,NULL),(29,'1an1hminh07102015@gmail.com','$2a$10$rS5ATIZM2Sfe34jM/L7QmuZ5k0wPoyiT0XtnsmTXRkJXLv4VIo3Iy',NULL,NULL),(30,'1111anhminh07102015@gmail.com','$2a$10$raX7IwwoCQUUYjjYq1LCB.Glv/brlXxRN/JYPxUQY2hrjzJvjY0m2',NULL,NULL),(31,'anhminh07102015@gmail.co','$2a$10$Me11hnM2rUNJ6Za92xO91OrWcSnJIm7T2a7CB8YTeNx9owewRQMUu',NULL,NULL),(32,'hminh07102015@gmail.com','$2a$10$ASODBZfN7YFywPUNdpSkr.Eo09xAJlEFrXvxW6ruoiQGQZrReRFzW',NULL,NULL),(33,'anh1minh07102015@gmail.com','$2a$10$yXzcnD/KYklixIqiaK7ihOqC.R7VKOccMUj1qEi9DSr1G5kTB0OZ.',NULL,NULL),(34,'anhminh071025@gmail.com','$2a$10$I/x9wPNWi8Ja2KA356wkl.BCBicY5IunwVu6GHAT85uIR6PG9V32m',NULL,NULL),(35,'anhminh01710201151@gmail.com','$2a$10$KJHxvBDSCeeZwmVTJlbPYuY4pJJB4ibjBeFtwS0hgO9mXacq6A2IG',NULL,NULL),(36,'anhminh07102011115@gmail.com','$2a$10$5OYo//azHbrSu074J/ZV3u.XOL7oFdZJOwsu/BZHXbYgNf2qt8Ri6',NULL,NULL),(37,'an1h2minh107102015@gmail.com','$2a$10$zmsbZkBgwxEyLqrZ07MwC.a7rbhi/sTnRI1XrW1HPl0Q7wP/8RM4G',NULL,NULL),(38,'anhmin2h07102015123@gmail.com','$2a$10$bAPdBFTFd1a3d1dVTgQpS.wObiWjNZDwNLc8blQqXijwW2QkLWeR2',NULL,NULL),(39,'anhminh07102011235@gmail.com','$2a$10$L5v72k3TWPC.8zTuQ.w3yurmQcvhOq5lcFzBfUUKV8N0TXCwCUAdu',NULL,NULL),(40,'anhmin1h07102012315@gmail.com','$2a$10$mxbYn9G53tf4eVlhWgSnt.mnuCcI.GvY7Aq/yso.Hr8/X4KEDqTsO',NULL,NULL),(41,'anhminh0710212222015@gmail.com','$2a$10$8nSzv.hP4M2mGE3IfhMqZurpyl4Dy/XyzkT95C9ilq6ojxz0DHqUO',NULL,NULL),(42,'an123222hminh07102015@gmail.com','$2a$10$F2EmNXYlS9NLlyVtqkq.QuBoGUbWDXKIc93gfOR82Y21EwfynakWm',NULL,NULL),(43,'anhmi1nh0710122222015@gmail.com','$2a$10$QkF76RYDVO2.MslUI.L9y.rDM7GDYog9QiPETARbRPh28EtcR5kdW',NULL,NULL),(44,'an11hminh0710201115@gmail.com','$2a$10$oDattkNGL/9c/o8qK9cf/.so0URhhG1WSVmesy76Fjv1rQWVJA3LC',NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -499,4 +500,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-10  0:05:13
+-- Dump completed on 2022-08-12 22:05:51

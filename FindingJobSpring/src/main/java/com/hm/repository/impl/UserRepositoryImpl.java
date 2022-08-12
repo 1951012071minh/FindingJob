@@ -31,9 +31,15 @@ public class UserRepositoryImpl implements UserRepository {
     private LocalSessionFactoryBean sessionFactory;
     
     @Override
-    public void addUser(User user) {
-        //sessionFactory.getCurrentSession().save(user);
-        //return false;
+    public boolean addUser(User user) {
+        Session session = sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(user);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 
     @Override

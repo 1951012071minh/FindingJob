@@ -18,15 +18,17 @@
                 <input type="text" class="input_username" placeholder="Enter Username" name="uname" required>
 
                 <label for="psw"><b>Password</b> <b class="text-danger">*</b></label>
+                <input type="password" class="input_password" placeholder="Password" name="psw" required>
+                <label for="psw"><b>Enter password</b> <b class="text-danger">*</b></label>
                 <input type="password" class="input_password" placeholder="Enter Password" name="psw" required>
 
                 <hr class="hr_signlog">
-                <P><b>THÔNG TIN CÁ NHÂN</b></P>
+                <P><b>THÔNG TIN NGUOI ÐAI DIEN</b></P>
                 <label for="psw"><b>Họ và tên</b> <b class="text-danger">*</b></label>
                 <input type="text" class="input_text" placeholder="Enter Name" name="name" required>
                 <label for="psw"><b>Số điện thoại</b> <b class="text-danger">*</b></label>
                 <input type="tel" class="input_text" placeholder="Enter phone number" name="phone"
-                       pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" name="phone" required>
+                       pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"  required>
                 <hr class="hr_signlog">
                 <P><b>THÔNG TIN DOANH NGHIỆP</b></P>
                     <label for="psw"><b>Tên công ty</b> <b class="text-danger">*</b></label>
@@ -53,6 +55,7 @@
                             <li><a class="dropdown-item" href="#">Khác</a></li>
                         </ul>
                     </div>
+                    <br>
                 <button class="btn_login btn_login_company" type="submit">Đăng Ký</button>
                 <div class="below_btn_login">
 

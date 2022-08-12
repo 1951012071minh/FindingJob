@@ -23,7 +23,9 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author ANHMINH
  */
+
 @Service("userDetailService")
+@Transactional
 public class UserServiceImpl implements UserService 
 {
 
@@ -34,12 +36,13 @@ public class UserServiceImpl implements UserService
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public void addUser(User user) {
+    public boolean addUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
         userRepository.addUser(user);
+        return true;
     }
-
+    
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<User> users = this.getUserByUsername(username);

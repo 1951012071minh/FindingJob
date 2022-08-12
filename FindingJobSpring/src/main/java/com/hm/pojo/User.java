@@ -19,6 +19,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -45,11 +48,14 @@ public class User implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
+    @Email(message = "{user.username.emailErr}")
+    @NotEmpty(message = "{user.username.notNullErr}")
     @Size(min = 1, max = 45)
     @Column(name = "Username")
     private String username;
     @Basic(optional = false)
     @NotNull
+    @NotEmpty(message = "{user.password.notNullErr}")
     @Size(min = 1, max = 200)
     @Column(name = "Password")
     private String password;
@@ -65,6 +71,8 @@ public class User implements Serializable {
     private Set<Candidate> candidateSet;
     @OneToMany(mappedBy = "userID")
     private Set<Company> companySet;
+    @Transient
+    private String repassword;
 
     public User() {
     }
@@ -166,6 +174,20 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "com.hm.pojo.User[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the repassword
+     */
+    public String getRepassword() {
+        return repassword;
+    }
+
+    /**
+     * @param repassword the repassword to set
+     */
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
     }
     
 }

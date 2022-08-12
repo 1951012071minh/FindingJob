@@ -574,20 +574,24 @@
             }
             .btn_login_company{
                 margin: 0 !important;
+                
             }
             /*********login_candidate***********/
             #login_section {
                 padding-top: 55px;
                 width: 100%;
-                /* height: 100vh; */
+                height: 100%;
 
             }
-
+            .login_left{
+                overflow: hidden;
+                height: 100%;
+            }
             .login_left-img {
                 position: relative;
                 background-color: rgba(1, 50, 83, 0.8);
                 width: 100%;
-                height: 100vh;
+                height: 100%;
             }
 
             .login_left-img img {
@@ -618,6 +622,10 @@
             .modal-content_login{
                 width: 90%;
                 padding: 0px 0 10px 40px;
+            }
+            .login_right{
+                overflow: auto;
+                height: auto
             }
             /********* signin***********/
             /***************************/
@@ -655,7 +663,7 @@
             .form_moreinfo {
                 box-shadow: 1px 2px 7px 3px #ccc;
                 padding: 10px 20px;
-                margin-top: 5px;
+                margin-top: 15px;
             }
 
             /*********choosemayor***********/
@@ -699,7 +707,7 @@
             }
 
             .wp-container {
-                max-width: 1280px;
+                max-width: 1380px;
                 margin-top: 20px;
             }
 
@@ -743,6 +751,7 @@
             #list_job {
                 margin-top: -20px;
                 margin-bottom: 20px;
+                padding-top: 65px
             }
 
             .detail-job ul {
@@ -817,53 +826,68 @@
                 padding-bottom: 20px;
                 border-bottom: 2px solid #000;
             }
-            .group-menu-list{
+
+            .group-menu-list {
                 padding-left: 10px;
             }
-            .group-menu-items{
+
+            .group-menu-items {
                 list-style: none;
                 border-bottom: 1px dashed #ccc;
                 line-height: 48px;
                 color: black !important;
             }
-            .group-menu-items a{
+
+            .group-menu-items a {
                 color: rgb(133, 132, 132) !important;
             }
-            #detail-info-job{
+
+            #detail-info-job {
                 padding-top: 50px;
                 margin-bottom: 30px;
+                margin-left: -50px;
             }
-            .ml--20{
+
+            .ml--20 {
                 margin-left: -20px;
             }
-            .detail-job-content{
+
+            .detail-job-content {
                 padding: 10px 30px;
                 box-shadow: 1px 3px 3px 3px #ccc;
+                background-color: #fff;
 
             }
-            .detail-job-main{
+
+            .detail-job-main {
                 margin-left: 55px;
             }
+
             /********* detail-job**********/
-            .logo-name_company{
+            .logo-name_company {
                 display: flex;
                 width: 100%;
             }
-            .logo-name_company h5{
+
+            .logo-name_company h5 {
                 line-height: 80px;
             }
-            .date_apply{
+
+            .date_apply {
                 padding: 0;
                 margin-top: 15px;
             }
-            .date_apply li{
+
+            .date_apply li {
                 margin-right: 30px;
             }
-            .section-btn_detailjob{
+
+            .section-btn_detailjob {
                 margin-top: 20px;
                 margin-bottom: 20px;
             }
-            .btn_apply{
+
+            .btn_apply {
                 background-color: #3e8ff8;
                 padding: 10px 10px;
                 text-align: center;
@@ -871,7 +895,8 @@
                 color: white;
                 border-radius: 10px;
             }
-            .btn_share{
+
+            .btn_share {
                 background-color: #ffffff;
                 border: 1px solid #ccc;
                 border-radius: 10px;
@@ -882,12 +907,14 @@
                 margin-left: 20px;
                 font-weight: 600;
             }
-            .detail-job-request > ul{
+
+            .detail-job-request>ul {
                 display: flex;
                 padding: 0;
 
             }
-            .detail-job-request > ul > li{
+
+            .detail-job-request>ul>li {
                 display: flex;
                 flex-direction: column;
                 flex: 1;
@@ -895,33 +922,109 @@
                 border-right: 1px solid #ccc;
                 margin-right: 10px;
             }
-            .detail-job-request > ul > li:last-child{
+
+            .detail-job-request>ul>li:last-child {
                 border: none;
             }
-            .detail-job-request > ul > li span:last-child{
+
+            .detail-job-request>ul>li span:last-child {
                 margin-top: 10px;
                 font-weight: 600;
             }
-            .detail-job-request > ul > li span:first-child{
+
+            .detail-job-request>ul>li span:first-child {
                 opacity: .5;
                 font-weight: 600;
                 font-size: 14px;
             }
-            .detail-infomation-content ul{
+
+            .detail-infomation-content ul {
                 padding: 0;
             }
-            .detail-infomation-content ul > li{
+
+            .detail-infomation-content ul>li {
                 display: flex;
 
             }
-            .detail-infomation-content ul > li > span:first-child{
+
+            .detail-infomation-content ul>li>span:first-child {
                 font-size: 16px;
                 font-weight: 500;
                 opacity: .6;
                 width: 50%;
             }
-            .detail-infomation-content ul > li > span:first-child{
+
+            .detail-infomation-content ul>li>span:first-child {
                 width: 50%;
+            }
+
+            .detail-job-more {
+                margin-top: 20px;
+            }
+
+            .contact-company {
+                margin-top: 20px;
+            }
+
+            .contact-company>p {
+
+                font-size: 14px;
+
+            }
+
+            .contact-company>p>span {
+                opacity: .5;
+            }
+            .name-company > p:last-child{
+                margin-top: -15px;
+                color: #888;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .name-company > p:first-child{
+                color: #000;
+                font-size: 14px;
+                font-weight: 500;
+                margin-top: -5px;
+            }
+            .name-company{
+                margin-left: -10px;
+            }
+            .list-thesame-job{
+                padding-left: 15px;
+                margin-top: -5px;
+            }
+            .list-thesame-job h5{
+                margin-left: -10px;
+            }
+            .box-job{
+                border: 1px solid #ccc;
+                /* padding: 5px 5px; */
+                border-radius: 5px;
+                padding-left: 5px;
+                padding-top: 5px;
+                background-color: #fff;
+                box-shadow: 1px 3px 3px 1px #ccc;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+            .box-job:hover{
+                background-color: rgb(247, 242, 242);
+            }
+            .box-job ul{
+                margin-bottom: 2px;
+
+                margin-top: -10px;
+
+            }
+            .box-job ul li{
+                font-size: 13px;
+            }
+            .border-bottom{
+                height: 5px;
+                width: 100px;
+                background-color: #3e8ff8;
+                margin-left: -10px;
             }
 
         </style>
@@ -930,7 +1033,6 @@
         <tiles:insertAttribute name="header" />
         <tiles:insertAttribute name="belownav" />
         <tiles:insertAttribute name="content" />
-        <tiles:insertAttribute name="login" />
         <tiles:insertAttribute name="footer" />
 
     </body>

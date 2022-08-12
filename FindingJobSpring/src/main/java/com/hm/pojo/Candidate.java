@@ -21,6 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 /**
@@ -47,6 +48,7 @@ public class Candidate implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @Size(max = 100)
+    @NotEmpty
     @Column(name = "Full_name")
     private String fullname;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
@@ -61,6 +63,7 @@ public class Candidate implements Serializable {
     private String city;
     @Size(max = 100)
     @Column(name = "Avatar")
+    @NotEmpty
     private String avatar;
     @Size(max = 300)
     @Column(name = "Description")

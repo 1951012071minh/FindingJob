@@ -6,6 +6,10 @@ package com.hm.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.hm.validators.RegisterValidator;
+import com.hm.validators.WebAppValidator;
+import java.util.HashSet;
+import java.util.Set;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -32,7 +36,8 @@ import org.springframework.web.servlet.view.JstlView;
 @ComponentScan(basePackages = {
     "com.hm.controllers",
     "com.hm.repository",
-    "com.hm.service",})
+    "com.hm.service",
+    "com.hm.validators"})
 public class WebAppContextConfig implements WebMvcConfigurer {
 
     @Override
@@ -67,6 +72,15 @@ public class WebAppContextConfig implements WebMvcConfigurer {
         LocalValidatorFactoryBean v = new LocalValidatorFactoryBean();
         v.setValidationMessageSource(messageSource());
 
+        return v;
+    }
+
+    @Bean
+    public WebAppValidator userValidator() {
+        Set<Validator> springValidators = new HashSet<>();
+        springValidators.add(new RegisterValidator());
+        WebAppValidator v = new WebAppValidator();
+        v.setSpringValidators(springValidators);
         return v;
     }
 

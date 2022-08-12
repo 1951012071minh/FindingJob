@@ -55,11 +55,18 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
                        value="/WEB-INF/jsp/signincandidate2.jsp" />
         <put-attribute name="footer" value="" />
     </definition>
-    <definition name="job_page" extends="baseLayout">
+    <definition name="jobpage" extends="baseLayout">
         <put-attribute name="title" value="công vi?c" />
         <put-attribute name="belownav" value="" />
         <put-attribute name="content"
                        value="/WEB-INF/jsp/job_page.jsp" />
+        
+    </definition>
+     <definition name="detailjob" extends="baseLayout">
+        <put-attribute name="title" value="chi ti?t công vi?c" />
+        <put-attribute name="belownav" value="" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/detail_job.jsp" />
         
     </definition>
    

@@ -6,6 +6,7 @@ package com.hm.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.hm.service.CandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -32,6 +33,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
+    
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -52,7 +54,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password");
         
-        //Khi load lên cha?y trang nao, thâ´t ba?i cha?y trang na`o
+//        http.formLogin().loginPage("/signincandidate")
+//                .usernameParameter("username")
+//                .passwordParameter("password");
+
         http.formLogin().defaultSuccessUrl("/").failureUrl("/login?error");
         
         http.logout().logoutSuccessUrl("/login");
@@ -63,6 +68,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                         
         http.csrf().disable();
     }
+    
+
 
     @Bean
     public Cloudinary cloudinary() {

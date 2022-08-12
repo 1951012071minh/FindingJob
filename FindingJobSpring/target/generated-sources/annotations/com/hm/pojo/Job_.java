@@ -12,7 +12,7 @@ import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.9.v20210604-rNA", date="2022-08-10T00:03:35")
+@Generated(value="EclipseLink-2.7.9.v20210604-rNA", date="2022-08-10T21:23:12")
 @StaticMetamodel(Job.class)
 public class Job_ { 
 
@@ -24,6 +24,7 @@ public class Job_ {
     public static volatile SetAttribute<Job, CandidateCompany> candidateCompanySet;
     public static volatile SingularAttribute<Job, Double> probationaryPeriod;
     public static volatile SingularAttribute<Job, String> description;
+    public static volatile SingularAttribute<Job, String> name;
     public static volatile SingularAttribute<Job, BigInteger> salary;
     public static volatile SingularAttribute<Job, Integer> isChecked;
     public static volatile SingularAttribute<Job, String> benefit;
